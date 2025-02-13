@@ -51,14 +51,15 @@
             font-size: 20px;
             font-weight: bold;
         }
-        #loveMessage {
+        #loveMessage, #loveLink {
             display: none;
             margin-top: 20px;
+        }
+        #loveMessage {
             font-size: 22px;
             font-weight: bold;
         }
         #loveLink {
-            display: none;
             padding: 15px 30px;
             font-size: 18px;
             border-radius: 10px;
@@ -78,7 +79,7 @@
         </div>
         <p id="message"></p>
         <p id="loveMessage"></p>
-        <a id="loveLink" href="https://www.youtube.com/watch?v=iDEi7HtnJfg" target="_blank">Love Till Infinity 💖</a>
+        <a id="loveLink" href="https://youtu.be/iDEi7HtnJfg?t=68" target="_blank">Love Till Infinity 💖</a>
     </div>
     
     <script>
@@ -91,7 +92,7 @@
             "Are you sure? 😢",
             "Think again, pretty please? 🥺",
             "I promise unlimited chocolates! 🍫",
-            "I'll watch K-dramas with you! 🎬",
+            "I'll watch TVD with you! 🎬",
             "You know you love me! ❤️",
             "I’ll be the best boyfriend ever! 😘"
         ];
@@ -99,15 +100,15 @@
         let size = 18;
 
         function sayYes() {
+            yesButton.style.display = "none";  // Hide the Yes button immediately
             message.innerText = "Thank You Darling!!, But Mujhe Pahle Se Pata Tha! 💖";
             noButton.style.display = "none";
-            yesButton.style.fontSize = size + "px";
-            if (size >= window.innerWidth * 0.8) {
-                yesButton.style.display = "none";
-                loveMessage.innerText = "I don't Know how to express love and I know I'm not great at it but all I have is this song for you";
+            
+            setTimeout(() => {
+                loveMessage.innerText = "I don't know how to express love, and I know I'm not great at it, but all I have is this song for you.";
                 loveMessage.style.display = "block";
                 loveLink.style.display = "inline-block";
-            }
+            }, 500);
         }
 
         function avoidNo() {
