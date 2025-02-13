@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: url('https://unsplash.com/photos/a-couple-of-people-sitting-on-top-of-a-sandy-beach-89J1d_xFDIo') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(8px);
+            color: white;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        #yes {
+            background: green;
+            color: white;
+        }
+        #no {
+            background: red;
+            color: white;
+            position: absolute;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        #loveMessage {
+            display: none;
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        #loveLink {
+            display: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            background: pink;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will you be my Valentine, Rishita? 💖</h1>
+        <div class="buttons">
+            <button id="yes" onclick="sayYes()">Yes</button>
+            <button id="no" onmouseover="avoidNo()">No</button>
+        </div>
+        <p id="message"></p>
+        <p id="loveMessage"></p>
+        <a id="loveLink" href="https://www.youtube.com/watch?v=iDEi7HtnJfg" target="_blank">Love Till Infinity 💖</a>
+    </div>
+    
+    <script>
+        let yesButton = document.getElementById("yes");
+        let noButton = document.getElementById("no");
+        let message = document.getElementById("message");
+        let loveMessage = document.getElementById("loveMessage");
+        let loveLink = document.getElementById("loveLink");
+        let messages = [
+            "Are you sure? 😢",
+            "Think again, pretty please? 🥺",
+            "I promise unlimited chocolates! 🍫",
+            "I'll watch K-dramas with you! 🎬",
+            "You know you love me! ❤️",
+            "I’ll be the best boyfriend ever! 😘"
+        ];
+        let index = 0;
+        let size = 18;
+
+        function sayYes() {
+            message.innerText = "Thank You Darling!!, But Mujhe Pahle Se Pata Tha! 💖";
+            noButton.style.display = "none";
+            yesButton.style.fontSize = size + "px";
+            if (size >= window.innerWidth * 0.8) {
+                yesButton.style.display = "none";
+                loveMessage.innerText = "I don't Know how to express love and I know I'm not great at it but all I have is this song for you";
+                loveMessage.style.display = "block";
+                loveLink.style.display = "inline-block";
+            }
+        }
+
+        function avoidNo() {
+            if (index < messages.length) {
+                message.innerText = messages[index++];
+            } else {
+                message.innerText = "Now, there's no escape! Say Yes! 😜";
+            }
+            size += 10;
+            yesButton.style.fontSize = size + "px";
+            noButton.style.position = "absolute";
+            noButton.style.left = Math.random() * (window.innerWidth - 100) + "px";
+            noButton.style.top = Math.random() * (window.innerHeight - 100) + "px";
+        }
+    </script>
+</body>
+</html>
