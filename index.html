@@ -8,7 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background: url('https://github.com/abhixxv02/valentine/blob/main/background.jpg');
+            background: url('https://raw.githubusercontent.com/your-username/your-repository/main/background.jpg') no-repeat center center/cover, pink;
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -59,6 +59,12 @@
             font-size: 22px;
             font-weight: bold;
         }
+        #clickText {
+            display: none;
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
         #loveLink {
             padding: 15px 30px;
             font-size: 18px;
@@ -79,7 +85,8 @@
         </div>
         <p id="message"></p>
         <p id="loveMessage"></p>
-        <a id="loveLink" href="https://youtu.be/iDEi7HtnJfg?t=68" target="_blank">Love Till Infinity 💖</a>
+        <p id="clickText">Click below 👇</p>
+        <a id="loveLink" href="https://www.youtube.com/watch?v=iDEi7HtnJfg" target="_blank">Love Till Infinity 💖</a>
     </div>
     
     <script>
@@ -87,6 +94,7 @@
         let noButton = document.getElementById("no");
         let message = document.getElementById("message");
         let loveMessage = document.getElementById("loveMessage");
+        let clickText = document.getElementById("clickText");
         let loveLink = document.getElementById("loveLink");
         let messages = [
             "Are you sure? 😢",
@@ -107,6 +115,7 @@
             setTimeout(() => {
                 loveMessage.innerText = "I don't know how to express love, and I know I'm not great at it, but all I have is this song for you.";
                 loveMessage.style.display = "block";
+                clickText.style.display = "block";
                 loveLink.style.display = "inline-block";
             }, 500);
         }
